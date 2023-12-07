@@ -4,6 +4,14 @@ import home from "./home";
 
 let currentPage;
 
+function showPage(page) {
+    page.classList.remove('hidden');
+}
+
+function hidePage(page) {
+    page.classList.add('hidden');
+}
+
 function loadPage(page, container) {
     if (!this.classList.contains('active')) {
         const children = container.children;
@@ -11,9 +19,9 @@ function loadPage(page, container) {
             children[i].classList.remove('active');
         }
         this.classList.add('active');
-        currentPage.classList.add('hidden');
+        hidePage(currentPage);
         currentPage = page;
-        currentPage.classList.remove('hidden');
+        showPage(currentPage);
     }
 }
 
@@ -24,7 +32,7 @@ export default function header() {
     homeButton.textContent = 'Home';
     homeButton.onclick = loadPage.bind(homeButton, home, header);
     homeButton.classList.add('active');
-    home.classList.remove('hidden');
+    showPage(home);
     currentPage = home;
 
     const menuButton = document.createElement('button');
