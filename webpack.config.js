@@ -1,21 +1,10 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        main: './src/index.js',
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Restaurant Page',
-            filename: 'index.html',
-            inject: 'body',
-        }),
-    ],
+    entry: './src/index.js',
     output: {
-        filename: '[name].bundle.js',
+        filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
-        clean: true,
     },
     mode: 'development',
     module: {

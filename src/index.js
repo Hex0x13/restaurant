@@ -1,8 +1,20 @@
+import './styles/style.css';
+import home from './home';
+import menu from './menu';
+import contact from './contact';
+import header from './header';
 
-function component(){
-    const element = document.createElement('div');
-    element.innerHTML = 'Hello';
-    return element;
+function main() {
+    const content = document.querySelector('#content');
+    const headSection = header();
+    const homePage = home;
+    const contactPage = contact;
+    const menuPage = menu;
+
+    content.appendChild(headSection);
+    content.appendChild(homePage);
+    content.appendChild(menuPage);
+    content.appendChild(contactPage);
 }
 
-document.body.appendChild(component());
+window.onload = main;
