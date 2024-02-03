@@ -6,9 +6,9 @@ import spaghettiImg from "./image/spaghetti.png";
 import carbonaraImg from "./image/carbonara.png";
 import orangeJuiceImg from "./image/orange-juice.png";
 import icedTeaImg from "./image/Iced-Tea.png";
+import menuLogoIcon from "./image/fast-food.png";
 
-
-function createItem(img, name, prize, description) {
+function createItem(img, name, prize) {
     const item = document.createElement('div');
     item.classList.add('menu-item');
 
@@ -22,7 +22,6 @@ function createItem(img, name, prize, description) {
     itemPrice.textContent = `$${prize.toFixed(2)}`;
 
     const itemDesc = document.createElement('p');
-    itemDesc.textContent = description;
 
     item.appendChild(itemImg);
     item.appendChild(itemName);
@@ -36,9 +35,17 @@ function menuPage() {
     menuContent.classList.add('menu-page');
     menuContent.classList.add('hidden');
 
-    const menuHeading2 = document.createElement('h2');
-    menuHeading2.classList.add('menu-logo');
-    menuHeading2.textContent = 'Menu';
+    const menuLogoDiv = document.createElement('div');
+    menuLogoDiv.classList.add('menu-logo');
+    
+    const menuLogoImg = document.createElement('img');
+    menuLogoImg.src = menuLogoIcon;
+
+    const menuLogo = document.createElement('h2');
+    menuLogo.textContent = 'Menu';
+    menuLogoDiv.appendChild(menuLogoImg);
+    menuLogoDiv.appendChild(menuLogo);
+
 
     const contentContainer = document.createElement('ul');
     contentContainer.classList.add('content-container');
@@ -47,7 +54,6 @@ function menuPage() {
         burgerImg,
         "hamburger",
         1.92,
-        "hamburger bun, ground beef patty, cheese, lettuce, onion, bacon, mayonnaise, ketchup, mustard"
     );
     contentContainer.appendChild(hamBurger);
 
@@ -55,7 +61,6 @@ function menuPage() {
         friesImg,
         "french fries",
         0.58,
-        "you don't like pizza and burger? you could try our french fries it will made your day."
     );
     contentContainer.appendChild(frenchFries);
 
@@ -63,7 +68,6 @@ function menuPage() {
         pepperoniImg,
         "pepperoni pizza",
         2.3,
-        "pizza dough, mozzarella cheese, pepperoni, bell pepper, tomato sauce, hot sauce"
     );
     contentContainer.appendChild(pepperoni);
 
@@ -71,7 +75,6 @@ function menuPage() {
         spaghettiImg,
         "spaghetti",
         0.42,
-        "discover the irresistible taste of our homemade spaghetti, made with fresh, flavorful sauces."
     );
     contentContainer.appendChild(spaghetti);
 
@@ -79,7 +82,6 @@ function menuPage() {
         carbonaraImg,
         "carbonara",
         0.41,
-        "experience the rich and creamy delight of our authentic carbonara, prepared with the finest ingredients."
     );
     contentContainer.appendChild(carbonara);
 
@@ -87,7 +89,6 @@ function menuPage() {
         freshLumpiaImg,
         "fresh lumpia",
         2.0,
-        "savor the freshness of our delicious lumpia! crispy, flavorful, and so satisfying!"
     );
     contentContainer.appendChild(freshLumpia);
 
@@ -95,7 +96,6 @@ function menuPage() {
         orangeJuiceImg,
         "orange juice",
         0.33,
-        "revitalize your day with our refreshing orange juice, brimming with pure, natural goodness in every sip!"
     );
     contentContainer.appendChild(orangeJuice);
 
@@ -103,11 +103,10 @@ function menuPage() {
         icedTeaImg,
         "iced tea",
         0.33,
-        "quench your thirst with our refreshing iced tea, the perfect blend of cool, flavorful goodness!"
     );
     contentContainer.appendChild(icedTea);
 
-    menuContent.appendChild(menuHeading2);
+    menuContent.appendChild(menuLogoDiv);
     menuContent.appendChild(contentContainer);
     return menuContent;
 }
